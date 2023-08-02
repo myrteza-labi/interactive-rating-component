@@ -8,10 +8,6 @@ const App = () => {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState([]);
 
-  const onSubmit = (formData) => {
-    setData(formData);
-  };
-
   const successUi = <>
     <img src="" alt=""/>
     <div>
@@ -31,7 +27,7 @@ const App = () => {
     Please let us know how we did with your support request.
     All feedback is appreciated to help us improve our offering!
   </p>
-  <form onSubmit={handleSubmit(onSubmit)}>
+  <form onSubmit={(formData) => handleSubmit(setData(formData))}>
     {map((value) =>
       <div key={value}>
         <label>{value}</label>
