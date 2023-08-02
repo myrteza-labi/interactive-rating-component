@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from 'react';
 import { map, isEmpty } from 'ramda';
+import deviceImg from './image/illustration-thank-you.svg'
+import starIcon from './image/icon-star.svg'; 
 
 const ratingValue = ["1", "2", "3", "4", "5"];
 
@@ -9,7 +11,7 @@ const App = () => {
   const [data, setData] = useState([]);
 
   const successUi = <>
-    <img src="" alt=""/>
+    <img src={deviceImg} alt="rating sended"/>
     <div>
       <p>You selected {data.rating} out of {ratingValue.length}</p>
     </div>
@@ -21,7 +23,7 @@ const App = () => {
   </>
 
   const ratingUi = <div className="">
-  <div className=""></div>
+  <img src={starIcon} alt="a star" /> 
   <h1>How did we do?</h1>
   <p>
     Please let us know how we did with your support request.
