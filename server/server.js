@@ -11,6 +11,10 @@ app.get('/', (req, res) => {
     res.send(`Hello world from the server`);
 });
 
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
+})
+
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -21,7 +25,4 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error'));
 db.once('open', () => {
     console.log('Connected to mongodb Atlas');
-    app.listen(port, () => {
-        console.log(`Server listening on port ${port}`);
-    });
 });
