@@ -6,11 +6,13 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT;
 const uri = process.env.URI;
-const { Schema } = mongoose; 
+const { Schema, model } = mongoose; 
 
 const ratingSchema = new Schema({
     note: String
 })
+
+const Rating = model('Rating', ratingSchema); 
 
 app.get('/', (req, res) => {
     res.send(`Hello world from the server`);
@@ -31,3 +33,5 @@ db.on('error', console.error.bind(console, 'Connection error'));
 db.once('open', () => {
     console.log('Connected to mongodb Atlas');
 });
+
+module.exports = Rating; 
