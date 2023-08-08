@@ -6,6 +6,11 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT;
 const uri = process.env.URI;
+const { Schema } = mongoose; 
+
+const ratingSchema = new Schema({
+    note: String
+})
 
 app.get('/', (req, res) => {
     res.send(`Hello world from the server`);
